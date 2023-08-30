@@ -1,27 +1,43 @@
-# React + TypeScript + Vite
+# Get started
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+To get the frontend running locally:
 
-Currently, two official plugins are available:
+1. Clone this repository;
+2. npm install to install all the dependencies defined in a package.json file;
+3. npm run dev to start the development server.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## About
 
-## Expanding the ESLint configuration
+## 1. Friends page (URL: /friends)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- View the list of friends in a table.
+- Click on a friend's name to navigate to the "About friend" page.
+- Click the "Edit" button to update a friend's information.
+- Click the "Remove" button to delete a friend from the list.
+- Click the "New friend" button to navigate to the "Add new friend" page.
 
-- Configure the top-level `parserOptions` property like this:
+## 2. About friend page (URL: /friends/:id)
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+- View detailed information about a friend in a card.
+- Click the "Back" button to navigate to the previous page.
+- Click the "Edit" button to update the friend's information.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## 3. Add new friend page (URL: /friends/new)
+
+- Fill out a form to create a new friend.
+- All fields in the form are required and should be valid.
+- Click the "Create friend" button to add the new friend to the list.
+- Click the "Back" button to navigate to the previous page.
+
+## 4. Edit friend page (URL: /friends/:id/edit)
+
+- Edit a friend's details using the form fields.
+- All fields in the form are required and should be valid.
+- Click the "Update friend" button to save the changes to the friend's information.
+- Click the "Back" button to navigate to the previous page.
+- Click the "Show" button to navigate to the "About friend" page.
+- Click the "Remove" button to delete the friend from the list.
+
+## 5. Not found page (URL: not valid)
+
+- This page is displayed when the URL is not valid.
