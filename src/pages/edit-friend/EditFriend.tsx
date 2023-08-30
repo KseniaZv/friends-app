@@ -16,7 +16,7 @@ function EditFriend() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const friend = useSelector((state: RootState) => selectFriendById(state, id || ''));
+  const friend = useSelector((state: RootState) => selectFriendById(state, id ?? ''));
 
   const initialValues = {
     firstName: friend?.firstName ?? '',
@@ -41,8 +41,8 @@ function EditFriend() {
       <FriendForm buttonLabel="Update friend" friendFormInitialValues={initialValues} onSubmit={handleSubmit} />
       <Stack direction="horizontal" gap={1}>
         <BackButton />
-        <ShowFriendButton id={id || ''} />
-        <RemoveFriendButton id={id || ''} onRemove={handleRemove} />
+        <ShowFriendButton id={id ?? ''} />
+        <RemoveFriendButton id={id ?? ''} onRemove={handleRemove} />
       </Stack>
     </>
   );

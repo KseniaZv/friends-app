@@ -2,7 +2,7 @@ import Button from 'react-bootstrap/Button';
 import FormGroup from 'react-bootstrap/FormGroup';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { FriendSchema } from '../../../../shared/validation';
-import './styles.scss';
+import styles from './styles.module.scss';
 
 export type FriendFormInitialValues = {
   firstName: string;
@@ -33,9 +33,9 @@ export function FriendForm({ buttonLabel, friendFormInitialValues, onSubmit }: F
       validationSchema={FriendSchema}
       onSubmit={(values) => onSubmit(values)}
     >
-      {({ touched, errors, isSubmitting }) => (
+      {({ touched, dirty, errors, isSubmitting }) => (
         <Form>
-          <FormGroup className="form-group">
+          <FormGroup className={styles['form-group']}>
             <Field
               name="firstName"
               placeholder="First Name"
@@ -44,7 +44,7 @@ export function FriendForm({ buttonLabel, friendFormInitialValues, onSubmit }: F
             <ErrorMessage component="div" name="firstName" className="invalid-feedback" />
           </FormGroup>
 
-          <FormGroup className="form-group">
+          <FormGroup className={styles['form-group']}>
             <Field
               name="lastName"
               placeholder="Last name"
@@ -53,7 +53,7 @@ export function FriendForm({ buttonLabel, friendFormInitialValues, onSubmit }: F
             <ErrorMessage component="div" name="lastName" className="invalid-feedback" />
           </FormGroup>
 
-          <FormGroup className="form-group">
+          <FormGroup className={styles['form-group']}>
             <Field
               type="email"
               name="email"
@@ -63,7 +63,7 @@ export function FriendForm({ buttonLabel, friendFormInitialValues, onSubmit }: F
             <ErrorMessage component="div" name="email" className="invalid-feedback" />
           </FormGroup>
 
-          <FormGroup className="form-group">
+          <FormGroup className={styles['form-group']}>
             <Field
               type="tel"
               name="phone"
@@ -73,7 +73,7 @@ export function FriendForm({ buttonLabel, friendFormInitialValues, onSubmit }: F
             <ErrorMessage component="div" name="phone" className="invalid-feedback" />
           </FormGroup>
 
-          <FormGroup className="form-group">
+          <FormGroup className={styles['form-group']}>
             <Field
               name="twitter"
               placeholder="Twitter"
@@ -82,7 +82,7 @@ export function FriendForm({ buttonLabel, friendFormInitialValues, onSubmit }: F
             <ErrorMessage component="div" name="twitter" className="invalid-feedback" />
           </FormGroup>
 
-          <Button type="submit" variant="dark" className="btn-block btn-submit" disabled={isSubmitting}>
+          <Button type="submit" variant="dark" className={styles['btn-submit']} disabled={isSubmitting || !dirty}>
             {buttonLabel}
           </Button>
         </Form>

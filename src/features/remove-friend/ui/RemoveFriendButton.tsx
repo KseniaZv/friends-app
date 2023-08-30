@@ -11,15 +11,13 @@ interface RemoveFriendButtonProps {
 export function RemoveFriendButton({ id, className = '', onRemove }: RemoveFriendButtonProps) {
   const dispatch = useDispatch();
 
+  const handleRemove = () => {
+    dispatch(removeFriend(id));
+    onRemove?.();
+  };
+
   return (
-    <Button
-      variant="danger"
-      className={className}
-      onClick={() => {
-        dispatch(removeFriend(id));
-        onRemove?.();
-      }}
-    >
+    <Button variant="danger" className={className} onClick={handleRemove}>
       Remove
     </Button>
   );

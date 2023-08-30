@@ -14,7 +14,6 @@ export const appRouter = () =>
     {
       element: <MainLayout />,
       children: [
-        // TODO CHECK
         {
           path: '',
           element: <FriendList />,

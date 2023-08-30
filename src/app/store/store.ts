@@ -4,8 +4,8 @@ import storage from 'redux-persist/lib/storage';
 import { rootReducer } from './rootReducer';
 
 const persistConfig = {
-  key: 'root',
   storage,
+  key: 'root',
   whitelist: ['friends'],
 };
 
@@ -14,7 +14,6 @@ const persistedReducer = persistReducer(persistConfig, rootReducer);
 export const store = configureStore({
   reducer: persistedReducer,
   middleware: (getDefaultMiddleware) => getDefaultMiddleware({ serializableCheck: false }),
-  devTools: true,
 });
 
 export const persistedStore = persistStore(store);

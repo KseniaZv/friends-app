@@ -5,28 +5,33 @@ import type { RootState } from '../../../../app/store';
 import { selectFriendById } from '../../../friend/api/friendSlice';
 import { EditFriendButton } from '../../../../features/edit-friend';
 import { BackButton } from '../../../../shared/ui/button';
-import './styles.scss';
+import { Title } from '../../../../shared/ui/title';
+import styles from './styles.module.scss';
 
 interface FriendCardProps {
   id?: string;
 }
 
 export function FriendCard({ id }: FriendCardProps) {
-  const friend = useSelector((state: RootState) => selectFriendById(state, id || ''));
+  const friend = useSelector((state: RootState) => selectFriendById(state, id ?? ''));
+
+  if (!friend) {
+    return <Title text="No friend found" />;
+  }
 
   return (
-    <Card className="crd">
-      <Card.Body className="crd-body">
-        <Card.Title className="crd-title">
+    <Card className={styles.crd}>
+      <Card.Body className={styles['crd-body']}>
+        <Card.Title className={styles['crd-title']}>
           {friend?.firstName} {friend?.lastName}
         </Card.Title>
         <Card.Text>
           {friend?.email} | {friend?.phone} | {friend?.twitter}
         </Card.Text>
-        <Card.Footer className="crd-footer">
+        <Card.Footer className={styles['crd-footer']}>
           <Stack direction="horizontal" gap={1}>
             <BackButton />
-            <EditFriendButton id={id || ''} />
+            <EditFriendButton id={id ?? ''} />
           </Stack>
         </Card.Footer>
       </Card.Body>
